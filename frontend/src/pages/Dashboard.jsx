@@ -41,7 +41,7 @@ function Dashboard() {
   const token = localStorage.getItem("token");
 
   const response = await axios.get(
-    "http://localhost:8080/auth/me",
+    "https://task-management-backend-3ecl.onrender.com/auth/me",
     {
       headers: {
         Authorization: `Bearer ${token}`
@@ -59,7 +59,7 @@ function Dashboard() {
       const token = localStorage.getItem("token");
 
       const response = await axios.get(
-        "http://localhost:8080/tasks",
+        "https://task-management-backend-3ecl.onrender.com/tasks",
         {
           headers: {
             Authorization: `Bearer ${token}`
@@ -90,7 +90,7 @@ function Dashboard() {
       const token = localStorage.getItem("token");
 
       await axios.delete(
-        `http://localhost:8080/tasks/${id}`,
+        `https://task-management-backend-3ecl.onrender.com/tasks/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`
@@ -113,7 +113,7 @@ function Dashboard() {
         const token = localStorage.getItem("token");
 
         await axios.put(
-          `http://localhost:8080/tasks/${task.id}`,
+          `https://task-management-backend-3ecl.onrender.com/tasks/${task.id}`,
           {
             ...task,
             completed: !task.completed
@@ -160,7 +160,7 @@ function Dashboard() {
       });
 
       await axios.post(
-        "http://localhost:8080/tasks",
+        "https://task-management-backend-3ecl.onrender.com/tasks",
         {
           title,
           description,
@@ -202,7 +202,7 @@ function Dashboard() {
       const token = localStorage.getItem("token");
 
       await axios.put(
-        `http://localhost:8080/tasks/${editingTaskId}`,
+        `https://task-management-backend-3ecl.onrender.com/tasks/${editingTaskId}`,
         {
           title,
           description,

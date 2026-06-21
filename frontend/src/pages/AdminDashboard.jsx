@@ -14,7 +14,7 @@ function AdminDashboard() {
       const token = localStorage.getItem("token");
 
       const response = await axios.get(
-        "http://localhost:8080/admin/users",
+        "https://task-management-backend-3ecl.onrender.com/admin/users",
         {
           headers: {
             Authorization: `Bearer ${token}`
@@ -49,7 +49,7 @@ function AdminDashboard() {
         const token = localStorage.getItem("token");
 
         await axios.delete(
-          `http://localhost:8080/admin/users/${id}`,
+          `https://task-management-backend-3ecl.onrender.com/admin/users/${id}`,
           {
             headers: {
               Authorization: `Bearer ${token}`
