@@ -1,0 +1,257 @@
+
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f8;
+}
+
+.dashboard-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+.form-container {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.form-container input,
+.form-container select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  margin-bottom: 15px;
+}
+
+.form-container button {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.task-card {
+  background: white;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.task-actions {
+  margin-top: 10px;
+}
+
+.task-actions button {
+  margin-right: 10px;
+}
+
+.high {
+  color: red;
+  font-weight: bold;
+}
+
+.medium {
+  color: orange;
+  font-weight: bold;
+}
+
+.low {
+  color: green;
+  font-weight: bold;
+}
+
+.task-completed {
+  opacity: 0.6;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: white;
+  padding: 15px 20px;
+  border-radius: 10px;
+
+  margin-bottom: 20px;
+
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.navbar button {
+  margin-left: 10px;
+}
+
+.stats-container {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.stat-card {
+  flex: 1;
+  background: white;
+  text-align: center;
+
+  padding: 20px;
+
+  border-radius: 10px;
+
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.stat-card h3 {
+  font-size: 28px;
+  margin: 0;
+}
+
+.stat-card p {
+  margin-top: 10px;
+}
+
+button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.form-container {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.form-container input,
+.form-container select {
+
+  width: 100%;
+  padding: 12px;
+
+  margin-top: 10px;
+  margin-bottom: 15px;
+
+  border: 1px solid #ddd;
+  border-radius: 6px;
+
+  box-sizing: border-box;
+}
+
+.overdue {
+  color: red;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+select {
+  color: black;
+}
+
+@media (max-width: 768px) {
+
+  .stats-container {
+    flex-direction: column;
+  }
+
+  .navbar {
+    flex-direction: column;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+.dashboard-container {
+padding: 10px;
+}
+
+.navbar {
+gap: 10px;
+text-align: center;
+}
+
+.task-actions {
+display: flex;
+flex-direction: column;
+gap: 8px;
+}
+
+.task-actions button {
+width: 100%;
+margin-right: 0;
+}
+
+input,
+select,
+button {
+width: 100%;
+box-sizing: border-box;
+}
+
+.task-card {
+padding: 12px;
+}
+
+}
+
+.chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.task-card {
+  transition: 0.3s;
+}
+
+.task-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.status-done {
+  background: #dcfce7;
+  color: #166534;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+
+.status-pending {
+  background: #fef3c7;
+  color: #92400e;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+.status-pending,
+.status-done {
+  display: inline-block;
+  margin-top: 15px;
+}
+.navbar h3 {
+  margin: 0;
+}
+
+.navbar button {
+  margin-left: 10px;
+}
+
+input[type="text"] {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+}
+.task-actions {
+  margin-bottom: 15px;
+}

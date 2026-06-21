@@ -1,0 +1,71 @@
+import { useState } from "react";
+import { loginUser } from "../services/authService";
+import { Link } from "react-router-dom";
+import "../Login.css";
+import { toast } from "react-toastify";
+
+function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = async () => {
+    try {
+      const data = await loginUser(email, password);
+
+      console.log("LOGIN RESPONSE =", JSON.stringify(data));
+      console.log("ROLE =", data.role);
+      console.log("TOKEN =", data.token);
+
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("role", data.role);
+      toast.success("Login successful!");
+
+      if(data.role === "ADMIN"){
+        window.location.href = "/admin";
+      } else {
+        window.location.href = "/dashboard";
+      }
+    } catch (error) {
+      toast.error("Invalid email or password");
+      console.error(error);
+    }
+  };
+
+  return (
+  <div className="auth-container">
+    <div className="auth-card">
+      <h2>Welcome Back 👋</h2>
+    <div>
+
+      <input
+        type="email"
+        placeholder="Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+
+      <br /><br />
+
+      <input
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+
+      <br /><br />
+
+      <button onClick={handleLogin}>
+        Login
+      </button>
+      <p>
+        Don't have an account? <Link to="/register">Sign Up</Link>
+      </p>
+    </div>
+
+    </div>
+  </div>
+  );
+}
+
+export default Login;
