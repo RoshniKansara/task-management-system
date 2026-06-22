@@ -104,3 +104,19 @@ margin-top: 10px;
   margin-bottom: 20px;
   color: #111827;
 }
+
+input,
+select,
+textarea {
+  background: white !important;
+  color: black !important;
+}
+
+.auth-card input {
+  background: white !important;
+  color: #111827 !important;
+}
+
+.auth-card input::placeholder {
+  color: #6b7280;
+}

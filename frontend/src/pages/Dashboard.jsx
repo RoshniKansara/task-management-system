@@ -169,8 +169,8 @@ function Dashboard() {
         return;
       }
 
-      if (!description.trim()) {
-        toast.error("Description is required");
+      if (!priority) {
+        toast.error("Priority is required");
         return;
       }
 
@@ -178,6 +178,7 @@ function Dashboard() {
         toast.error("Due date is required");
         return;
       }
+
 
       await axios.post(
         "https://task-management-backend-3ecl.onrender.com/tasks",
@@ -295,6 +296,15 @@ function Dashboard() {
     }
   ];
 
+  const handleLogout = () => {
+
+  localStorage.removeItem("token");
+  localStorage.removeItem("role");
+
+  window.location.href = "/";
+
+};
+
   if (loading) {
   return <h2>Loading...</h2>;
 }
@@ -303,27 +313,23 @@ function Dashboard() {
     <div className="dashboard-container">
 
       <div className="navbar">
-        <h3>
-          Welcome, {user?.name}
-        </h3>
-        <h2>Task Manager</h2>
 
-        <div>
+        <div className="user-info">
+          <h2>👋 Welcome Back, {user?.name}</h2>
 
-          <button
-            onClick={() => {
-              localStorage.removeItem("token");
-              window.location.href = "/";
-            }}
-          >
-          Logout
-          </button>
+          <p>
+            Stay organized and manage your tasks efficiently.
+          </p>
         </div>
+
+        <button
+          className="logout-btn"
+          onClick={handleLogout}
+        >
+          Logout
+        </button>
+
       </div>
-          <div className="welcome-card">
-            <h2>Welcome Back 👋</h2>
-            <p>Stay organized and manage your tasks efficiently.</p>
-          </div>
         
 
         

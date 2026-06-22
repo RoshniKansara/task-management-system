@@ -71,13 +71,20 @@ body {
   justify-content: space-between;
   align-items: center;
 
-  background: white;
-  padding: 15px 20px;
-  border-radius: 10px;
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #3b82f6
+  );
+  color: white;
+  padding: 25px;
 
-  margin-bottom: 20px;
+  border-radius: 18px;
 
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin-bottom: 25px;
+
+  box-shadow:
+    0 10px 25px rgba(37,99,235,0.25);
 }
 
 .navbar button {
@@ -101,16 +108,18 @@ body {
 }
 
 .stat-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-5px);
 }
 
 .stat-card h3 {
-  font-size: 28px;
+  font-size: 42px;
+  color: #2563eb;
   margin: 0;
 }
 
 .stat-card p {
   margin-top: 10px;
+  color: #6b7280;
 }
 
 button {
@@ -166,8 +175,25 @@ select {
     flex-direction: column;
   }
 
-  .navbar {
-    flex-direction: column;
+  .navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    padding: 18px;
+  }
+
+   .user-info h2{
+    font-size: 22px;
+  }
+
+  .user-info p{
+    font-size: 14px;
+  }
+
+  .logout-btn{
+    margin-left: 10px;
+    flex-shrink: 0;
   }
 
 }
@@ -293,9 +319,9 @@ label {
 
 .section-title {
   text-align: center;
-  margin-bottom: 15px;
-  color: #1f2937;
-  font-weight: 600;
+  margin-bottom: 20px;
+  color: #111827;
+  font-weight: 700;
 }
 
 .chart-container {
@@ -332,3 +358,39 @@ label {
 
 }
 
+.user-info h2 {
+  margin: 0;
+  color: white;
+}
+
+.user-info p {
+  margin-top: 8px;
+  color: rgba(255,255,255,0.9);
+}
+
+.logout-btn {
+  background: white;
+  color: #2563eb;
+
+  font-weight: bold;
+
+  border-radius: 10px;
+
+  padding: 10px 18px;
+}
+
+.logout-btn:hover {
+  background: #f3f4f6;
+}
+
+input,
+select,
+textarea {
+  background: white !important;
+  color: black !important;
+  border: 1px solid #d1d5db;
+}
+
+input::placeholder {
+  color: #6b7280;
+}
