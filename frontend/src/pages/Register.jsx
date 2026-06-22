@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import "../Login.css";
 
 function Register() {
+
+  const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -69,13 +71,23 @@ function Register() {
 
         <br /><br />
 
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          onChange={handleChange}
-          required
-        />
+        <div className="password-container">
+
+          <input
+            type={showPassword ? "text" : "password"}
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+
+          <span
+            className="password-toggle"
+            onClick={() => setShowPassword(!showPassword)}
+          >
+            {showPassword ? "Hide" : "Show"}
+          </span>
+
+        </div>
 
         <br /><br />
 
