@@ -28,7 +28,12 @@ body {
   border-radius: 10px;
   margin-bottom: 20px;
 }
-
+.form-container label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #374151;
+}
 .form-container input,
 .form-container select {
   width: 100%;

@@ -461,6 +461,7 @@ function Dashboard() {
     <option value="HIGH">HIGH</option>
   </select>
 
+  <label>Due Date *</label>
   <input
     type="date"
     value={dueDate}
