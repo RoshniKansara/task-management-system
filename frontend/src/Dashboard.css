@@ -3,12 +3,23 @@
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f6f8;
+  margin: 0;
+}
+
+#root {
+  min-height: 100vh;
+  background: #f4f6f8;
 }
 
 .dashboard-container {
-  max-width: 900px;
+  width: 100%;
+  max-width: 1200px;
+
   margin: auto;
+
   padding: 20px;
+
+  box-sizing: border-box;
 }
 
 .form-container {
@@ -67,6 +78,8 @@ body {
 }
 
 .navbar {
+
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -77,14 +90,15 @@ body {
     #3b82f6
   );
   color: white;
-  padding: 25px;
+  padding: 30px;
 
-  border-radius: 18px;
+  border-radius: 20px;
 
-  margin-bottom: 25px;
+  margin-bottom: 30px;
 
   box-shadow:
     0 10px 25px rgba(37,99,235,0.25);
+  overflow: hidden;
 }
 
 .navbar button {
@@ -184,16 +198,13 @@ select {
   }
 
    .user-info h2{
+    color:white;
     font-size: 22px;
   }
 
   .user-info p{
     font-size: 14px;
-  }
-
-  .logout-btn{
-    margin-left: 10px;
-    flex-shrink: 0;
+    color: rgba(255,255,255,0.9);
   }
 
 }
@@ -369,14 +380,26 @@ label {
 }
 
 .logout-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  width: auto !important;
+
   background: white;
   color: #2563eb;
 
-  font-weight: bold;
-
-  border-radius: 10px;
+  font-weight: 600;
 
   padding: 10px 18px;
+
+  border-radius: 30px;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.logout-btn:hover {
+  background: #f3f4f6;
 }
 
 .logout-btn:hover {
@@ -393,4 +416,38 @@ textarea {
 
 input::placeholder {
   color: #6b7280;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+.user-info {
+  padding-right: 120px;
+}
+
+.navbar::before {
+  content: "";
+
+  position: absolute;
+
+  top: -40px;
+  right: -40px;
+
+  width: 150px;
+  height: 150px;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,0.12);
+}
+input[type="date"] {
+  background: white !important;
+  color: black !important;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 1;
+  cursor: pointer;
 }
