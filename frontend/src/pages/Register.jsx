@@ -75,9 +75,11 @@ function Register() {
 
           <input
             type={showPassword ? "text" : "password"}
+            name="password"
             placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={formData.password}
+            onChange={handleChange}
+            required
           />
 
           <span
