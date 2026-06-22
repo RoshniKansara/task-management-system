@@ -34,6 +34,13 @@ function Login() {
   return (
   <div className="auth-container">
     <div className="auth-card">
+       <h1 className="app-title">
+          TaskFlow
+        </h1>
+
+        <p className="app-subtitle">
+          Smart Task Management System
+        </p>
       <h2>Welcome Back 👋</h2>
     <div>
 
@@ -44,16 +51,12 @@ function Login() {
         onChange={(e) => setEmail(e.target.value)}
       />
 
-      <br /><br />
-
       <input
         type="password"
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-
-      <br /><br />
 
       <button onClick={handleLogin}>
         Login

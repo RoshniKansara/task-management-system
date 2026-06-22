@@ -3,12 +3,17 @@ import axios from "axios";
 import "../Dashboard.css";
 import "../AdminDashboard.css";
 import { toast } from "react-toastify";
-
 import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
   PieChart,
   Pie,
   Cell,
-  Tooltip,
   Legend
 } from "recharts";
 
@@ -159,6 +164,21 @@ function Dashboard() {
           completed: false
       });
 
+      if (!title.trim()) {
+        toast.error("Title is required");
+        return;
+      }
+
+      if (!description.trim()) {
+        toast.error("Description is required");
+        return;
+      }
+
+      if (!dueDate) {
+        toast.error("Due date is required");
+        return;
+      }
+
       await axios.post(
         "https://task-management-backend-3ecl.onrender.com/tasks",
         {
@@ -248,6 +268,33 @@ function Dashboard() {
 
   const COLORS = ["#22c55e", "#f59e0b"];
 
+  const highCount = tasks.filter(
+    task => task.priority?.toUpperCase() === "HIGH"
+  ).length;
+
+  const mediumCount = tasks.filter(
+    task => task.priority?.toUpperCase() === "MEDIUM"
+  ).length;
+
+  const lowCount = tasks.filter(
+    task => task.priority?.toUpperCase() === "LOW"
+  ).length;
+
+  const priorityData = [
+    {
+      priority: "High",
+      count: highCount
+    },
+    {
+      priority: "Medium",
+      count: mediumCount
+    },
+    {
+      priority: "Low",
+      count: lowCount
+    }
+  ];
+
   if (loading) {
   return <h2>Loading...</h2>;
 }
@@ -259,27 +306,31 @@ function Dashboard() {
         <h3>
           Welcome, {user?.name}
         </h3>
-      <h2>Task Manager</h2>
+        <h2>Task Manager</h2>
 
-      <div>
+        <div>
 
-        <button
-          onClick={() => {
-            localStorage.removeItem("token");
-            window.location.href = "/";
-          }}
-        >
+          <button
+            onClick={() => {
+              localStorage.removeItem("token");
+              window.location.href = "/";
+            }}
+          >
           Logout
-        </button>
+          </button>
+        </div>
       </div>
-    </div>
+          <div className="welcome-card">
+            <h2>Welcome Back 👋</h2>
+            <p>Stay organized and manage your tasks efficiently.</p>
+          </div>
+        
 
         
 
-        <h2>Task Statistics</h2>
+        <h2 className="section-title">Task Statistics</h2>
 
         <div className="stats-container">
-
           <div className="stat-card">
             <h3>{totalTasks}</h3>
             <p>Total Tasks</p>
@@ -294,35 +345,69 @@ function Dashboard() {
             <h3>{pendingTasks}</h3>
             <p>Pending</p>
           </div>
-
         </div>
 
-        <h2>Task Analytics</h2>
 
-          <div className="chart-container">
-            <PieChart width={400} height={300}>
-              <Pie
-                data={chartData}
-                cx="50%"
-                cy="50%"
-                outerRadius={100}
-                dataKey="value"
-                label
+          <div className="charts-row">
+
+            <div className="chart-card">
+
+              <h2 className="section-title">
+                Task Analytics
+              </h2>
+
+                <div className="chart-container">
+                  <PieChart width={400} height={300}>
+                    <Pie
+                      data={chartData}
+                      cx="50%"
+                      cy="50%"
+                      outerRadius={100}
+                      dataKey="value"
+                      label
+                    >
+                      {chartData.map((entry, index) => (
+                        <Cell
+                          key={index}
+                          fill={COLORS[index]}
+                        />
+                      ))}
+                    </Pie>
+
+                    <Tooltip />
+                    <Legend />
+                  </PieChart>
+                </div>
+
+            </div>
+
+            <div className="chart-card">
+
+              <h2 className="section-title">
+                Priority Analytics
+              </h2>
+
+              <ResponsiveContainer
+                width="100%"
+                height={300}
               >
-                {chartData.map((entry, index) => (
-                  <Cell
-                    key={index}
-                    fill={COLORS[index]}
+                <BarChart data={priorityData}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="priority" />
+                  <YAxis />
+                  <Tooltip />
+
+                  <Bar
+                    dataKey="count"
+                    fill="#2563eb"
+                    radius={[12, 12, 0, 0]}
                   />
-                ))}
-              </Pie>
+                </BarChart>
+              </ResponsiveContainer>
 
-              <Tooltip />
-              <Legend />
-            </PieChart>
+            </div>
+
           </div>
-
-
 
         <hr />
 
